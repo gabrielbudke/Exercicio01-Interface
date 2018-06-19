@@ -36,6 +36,7 @@ public class Exercicio01 {
 
     private JComboBox jComboBoxRaca;
     private JTextArea jTextAreaDescricao;
+    private ScrollPane jScrollPane;
 
     private JTextField jTextFieldNome, jTextFieldIdade, jTextFieldApelido, jTextFieldPreco;
 
