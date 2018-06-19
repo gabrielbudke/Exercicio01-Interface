@@ -104,17 +104,36 @@ public class Exercicio01 {
     private void criarDimensoes() {
         
         //Dimensão da Label
-        jLabelNome.setSize(40,10);
-        jLabelIdade.setSize(35,10);
-        jLabelPreco.setSize(35,10);
-        jLabelApelido.setSize(40,10);
+        jLabelNome.setSize(40,20);
+        jLabelIdade.setSize(35,20);
+        jLabelRaca.setSize(50,20);
+        jLabelApelido.setSize(50,20);
+        jLabelPreco.setSize(40,10);
         jLabelDescricao.setSize(45,10);
-
+        
         //Dimensão da TextField
-        jTextFieldNome.setSize(300,20); 
+        jTextFieldNome.setSize(350,20); 
         jTextFieldIdade.setSize(170,20);
-        jTextFieldApelido.setSize(50,10);
-        jTextFieldPreco.setSize(50,10);
+        jTextFieldApelido.setSize(190,20);
+        jTextFieldPreco.setSize(170,20);
+        
+        //Dimensão da ComboBox
+        jComboBoxRaca.setSize(145, 20);
+        
+        //Dimensão RadioButton
+        jRadioButtonVivo.setSize(60,20);
+        jRadioButtonMorto.setSize(60,20);
+        jRadioButtonRacao.setSize(80,20);
+        jRadioButtonCome.setSize(160,20);
+        
+        //Dimensão CheckBox
+        jCheckBoxAdestrado.setSize(100,20);
+        jCheckBoxCastrado.setSize(100,20);
+        jCheckBoxPedigree.setSize(125,20);
+        jCheckBoxVacinado.setSize(100,20);
+        
+        
+        
         
         //TODO fazer as dimensoes
     }
@@ -124,24 +143,35 @@ public class Exercicio01 {
         //Localização da Label
         jLabelNome.setLocation(10,10);
         jLabelIdade.setLocation(400,10);
-        
+        jLabelRaca.setLocation(10,60);
+        jLabelApelido.setLocation(170,60);
+        jLabelPreco.setLocation(400,60);
+        jLabelDescricao.setLocation(10,210);
         
         //Localização da TextField
         jTextFieldNome.setLocation(10,30);
         jTextFieldIdade.setLocation(400,30);
+        jTextFieldApelido.setLocation(170,80);
+        jTextFieldPreco.setLocation(400,80);
         
         
+        //Localização da ComboBox
+        jComboBoxRaca.setLocation(10,80);
         
-        /*jLabelApelido.setLocation();
-        jLabelPreco.setLocation();
-        jLabelDescricao.setLocation();
+        //Localização JRadioButton
+        jRadioButtonVivo.setLocation(10,125);
+        jRadioButtonMorto.setLocation(10,155);
+        jRadioButtonRacao.setLocation(120,125);
+        jRadioButtonCome.setLocation(120,155);
         
-        */
         
-
+        jCheckBoxAdestrado.setLocation(325,125);
+        jCheckBoxCastrado.setLocation(325,155);
+        jCheckBoxPedigree.setLocation(425,125);
+        jCheckBoxVacinado.setLocation(425,155);
         
-        //TODO fazer a localizações da labels
     }
+        
 
     private void adicionarComponentes() {
         
@@ -156,7 +186,26 @@ public class Exercicio01 {
         //TextField add a Frame
         jFrameTela.add(jTextFieldNome);
         jFrameTela.add(jTextFieldIdade);
+        jFrameTela.add(jTextFieldApelido);
+        jFrameTela.add(jTextFieldPreco);
+        
+        //ComboBox add a Frame
+        jFrameTela.add(jComboBoxRaca);
 
+        //JRadioButton add a Frame
+        jFrameTela.add(jRadioButtonVivo);
+        jFrameTela.add(jRadioButtonMorto);
+        jFrameTela.add(jRadioButtonRacao);
+        jFrameTela.add(jRadioButtonCome);
+        
+        
+        jFrameTela.add(jCheckBoxAdestrado);
+        jFrameTela.add(jCheckBoxCastrado);
+        jFrameTela.add(jCheckBoxPedigree);
+        jFrameTela.add(jCheckBoxVacinado);
+        
+        
+        
     }
 
 }
