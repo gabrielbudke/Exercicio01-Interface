@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -36,7 +37,7 @@ public class Exercicio01 {
 
     private JComboBox jComboBoxRaca;
     private JTextArea jTextAreaDescricao;
-    private ScrollPane jScrollPane;
+    private JScrollPane jScrollPane;
 
     private JTextField jTextFieldNome, jTextFieldIdade, jTextFieldApelido, jTextFieldPreco;
 
