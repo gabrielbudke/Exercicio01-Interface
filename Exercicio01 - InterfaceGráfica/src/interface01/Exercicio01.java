@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -76,7 +77,9 @@ public class Exercicio01 {
         jFrameTela.setLocationRelativeTo(null);
         jFrameTela.setTitle("EXERCICIO");
         jFrameTela.getContentPane().setBackground(Color.decode("#bfe2ff"));
+        jFrameTela.setResizable(false);
         jFrameTela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
 
     }
 
@@ -124,6 +127,7 @@ public class Exercicio01 {
         jTextFieldIdade = new JTextField();
         jTextFieldApelido = new JTextField();
         jTextFieldPreco = new JTextField();
+        
 
     }
 
@@ -338,18 +342,20 @@ public class Exercicio01 {
 
         String nome = jTextFieldNome.getText().trim();
         String apelido = jTextFieldApelido.getText().trim();
-        int idade = 0;
-
+        int idade = Integer.parseInt(jTextFieldIdade.getText());
+        
         try {
             idade = Integer.parseInt(jTextFieldIdade.getText());
         }catch (Exception e){
             JOptionPane.showMessageDialog(null,"Entrada Inválida");
         }
+       
         
         if (nome.isEmpty()) {
             JOptionPane.showMessageDialog(null, "!! Campo \"Nome\" esta em braco !!", "INVÁLIDO", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
 
     }
 
