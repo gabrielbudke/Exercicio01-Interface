@@ -1,6 +1,9 @@
 package interface01;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -10,6 +13,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 /**
  * @author Gabriel Budke
@@ -40,6 +44,8 @@ public class Exercicio01 {
     private JScrollPane jScrollPane;
 
     private JTextField jTextFieldNome, jTextFieldIdade, jTextFieldApelido, jTextFieldPreco;
+    
+    private DefaultComboBoxModel selecao;
 
     public Exercicio01() {
 
@@ -48,16 +54,24 @@ public class Exercicio01 {
         criarDimensoes();
         criarLocalizacao();
         adicionarComponentes();
-
+        acaoComboBox();
+        acaoJButtonCancelar();
+        estilizarRadioButton();
+        estilizarJTextArea();
+        estilizarCheckBox();
+        
+ 
         jFrameTela.setVisible(true);
 
     }
 
     private void gerarTela() {
         jFrameTela = new JFrame();
-        jFrameTela.setSize(600, 450);
+        jFrameTela.setSize(645, 445);
         jFrameTela.setLayout(null);
         jFrameTela.setLocationRelativeTo(null);
+        jFrameTela.setTitle("EXERCICIO");
+        jFrameTela.getContentPane().setBackground(Color.decode("#bfe2ff"));
         jFrameTela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
@@ -68,7 +82,7 @@ public class Exercicio01 {
         jLabelNome = new JLabel();
         jLabelNome.setText("Nome:");
         jLabelIdade = new JLabel("Idade:");
-        jLabelRaca = new JLabel("Raca:");
+        jLabelRaca = new JLabel("Raça:");
         jLabelApelido = new JLabel("Apelido:");
         jLabelPreco = new JLabel("Preço:");
         jLabelDescricao = new JLabel("Descrição:");
@@ -105,76 +119,142 @@ public class Exercicio01 {
 
     private void criarDimensoes() {
         
-        //Dimensão da Label
-        jLabelNome.setSize(40,20);
-        jLabelIdade.setSize(35,20);
+        //DimensÃ£o da Label
+        jLabelNome.setSize(50,20);
+        jLabelIdade.setSize(50,20);
         jLabelRaca.setSize(50,20);
-        jLabelApelido.setSize(50,20);
-        jLabelPreco.setSize(40,10);
-        jLabelDescricao.setSize(45,10);
+        jLabelApelido.setSize(80,20);
+        jLabelPreco.setSize(50,20);
+        jLabelDescricao.setSize(80,10);
         
-        //Dimensão da TextField
-        jTextFieldNome.setSize(350,20); 
-        jTextFieldIdade.setSize(170,20);
+        //DimensÃ£o da TextField
+        jTextFieldNome.setSize(380,20); 
+        jTextFieldIdade.setSize(180,20);
         jTextFieldApelido.setSize(190,20);
-        jTextFieldPreco.setSize(170,20);
+        jTextFieldPreco.setSize(180,20);
         
-        //Dimensão da ComboBox
-        jComboBoxRaca.setSize(145, 20);
+        //DimensÃ£o da ComboBox
+        jComboBoxRaca.setSize(180, 20);
         
-        //Dimensão RadioButton
+        //DimensÃ£o RadioButton
         jRadioButtonVivo.setSize(60,20);
         jRadioButtonMorto.setSize(60,20);
         jRadioButtonRacao.setSize(80,20);
         jRadioButtonCome.setSize(160,20);
         
-        //Dimensão CheckBox
+        //DimensÃ£o CheckBox
         jCheckBoxAdestrado.setSize(100,20);
         jCheckBoxCastrado.setSize(100,20);
         jCheckBoxPedigree.setSize(125,20);
         jCheckBoxVacinado.setSize(100,20);
         
+        //Dimensão JTextArea
+        jTextAreaDescricao.setSize(595,100);
         
-        
+        //Dimensão JButton
+        jButtonSalvar.setSize(150,75);
+        jButtonCancelar.setSize(150,75);
         
         //TODO fazer as dimensoes
     }
 
     private void criarLocalizacao() {
 
-        //Localização da Label
+        //LocalizaÃ§Ã£o da Label
         jLabelNome.setLocation(10,10);
-        jLabelIdade.setLocation(400,10);
+        jLabelIdade.setLocation(425,10);
         jLabelRaca.setLocation(10,60);
-        jLabelApelido.setLocation(170,60);
-        jLabelPreco.setLocation(400,60);
-        jLabelDescricao.setLocation(10,210);
+        jLabelApelido.setLocation(200,60);
+        jLabelPreco.setLocation(425,60);
+        jLabelDescricao.setLocation(10,190);
         
-        //Localização da TextField
+        //LocalizaÃ§Ã£o da TextField
         jTextFieldNome.setLocation(10,30);
-        jTextFieldIdade.setLocation(400,30);
-        jTextFieldApelido.setLocation(170,80);
-        jTextFieldPreco.setLocation(400,80);
+        jTextFieldIdade.setLocation(425,30);
+        jTextFieldApelido.setLocation(200,80);
+        jTextFieldPreco.setLocation(425,80);
         
         
-        //Localização da ComboBox
+        //LocalizaÃ§Ã£o da ComboBox
         jComboBoxRaca.setLocation(10,80);
         
-        //Localização JRadioButton
+        //LocalizaÃ§Ã£o JRadioButton
         jRadioButtonVivo.setLocation(10,125);
-        jRadioButtonMorto.setLocation(10,155);
-        jRadioButtonRacao.setLocation(120,125);
-        jRadioButtonCome.setLocation(120,155);
+        jRadioButtonMorto.setLocation(10,150);
+        jRadioButtonRacao.setLocation(115,125);
+        jRadioButtonCome.setLocation(115,150);
+        
+        //Localização JCheckBox
+        jCheckBoxAdestrado.setLocation(350,125);
+        jCheckBoxCastrado.setLocation(350,150);
+        jCheckBoxPedigree.setLocation(450,125);
+        jCheckBoxVacinado.setLocation(450,150);
         
         
-        jCheckBoxAdestrado.setLocation(325,125);
-        jCheckBoxCastrado.setLocation(325,155);
-        jCheckBoxPedigree.setLocation(425,125);
-        jCheckBoxVacinado.setLocation(425,155);
+        jTextAreaDescricao.setLocation(10, 215);
+        
+        
+        //
+        jButtonCancelar.setLocation(290,325);
+        jButtonSalvar.setLocation(455,325);
+        
+    }
+    
+    private void acaoComboBox(){
+        
+        selecao = new DefaultComboBoxModel(
+        new Object[]{
+            "Pastor-Alemão",
+            "Labrador",
+            "Buldogue",
+            "Poodle",
+            "Beagle",
+            "Golden Retriver",
+            "Pug",
+            "Rottweiler",
+        });
+        
+        jComboBoxRaca.setModel(selecao);
+        jComboBoxRaca.setSelectedIndex(-1);
+        
+    }
+    
+    private void acaoJButtonCancelar(){
+        jButtonCancelar.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                jTextFieldNome.setText("");
+                jTextFieldIdade.setText("");
+                jTextFieldApelido.setText("");
+                jTextFieldPreco.setText("");
+                jComboBoxRaca.setSelectedIndex(-1);
+                jCheckBoxAdestrado.setSelected(false);
+                jCheckBoxCastrado.setSelected(false);
+                jCheckBoxPedigree.setSelected(false);
+                jCheckBoxVacinado.setSelected(false);
+            }
+        });
+    }
+    
+    private void estilizarRadioButton(){
+        jRadioButtonVivo.setContentAreaFilled(false);
+        jRadioButtonMorto.setContentAreaFilled(false);
+        jRadioButtonRacao.setContentAreaFilled(false);
+        jRadioButtonCome.setContentAreaFilled(false);
+        
+    }
+    
+    private void estilizarJTextArea(){
+        jTextAreaDescricao.setBorder(new LineBorder(Color.GRAY));
+    }
+    
+    private void estilizarCheckBox(){
+        jCheckBoxAdestrado.setContentAreaFilled(false);
+        jCheckBoxCastrado.setContentAreaFilled(false);
+        jCheckBoxPedigree.setContentAreaFilled(false);
+        jCheckBoxVacinado.setContentAreaFilled(false);
         
     }
         
-
     private void adicionarComponentes() {
         
         //Label add a Frame
@@ -200,11 +280,18 @@ public class Exercicio01 {
         jFrameTela.add(jRadioButtonRacao);
         jFrameTela.add(jRadioButtonCome);
         
-        
+        //JCheckBox add a Frame
         jFrameTela.add(jCheckBoxAdestrado);
         jFrameTela.add(jCheckBoxCastrado);
         jFrameTela.add(jCheckBoxPedigree);
         jFrameTela.add(jCheckBoxVacinado);
+        
+        //JTextArea add a Frame
+        jFrameTela.add(jTextAreaDescricao);
+        
+        //JButton add a Frame
+        jFrameTela.add(jButtonCancelar);
+        jFrameTela.add(jButtonSalvar);
         
         
         
